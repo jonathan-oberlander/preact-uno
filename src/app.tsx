@@ -3,6 +3,8 @@ import { useSignal, useComputed } from "@preact/signals";
 
 import "uno.css";
 
+type WithChildren = { children: ComponentChildren };
+
 export function App() {
   return (
     <Body>
@@ -11,10 +13,10 @@ export function App() {
   );
 }
 
-type Children = { children: ComponentChildren };
+type BodyProps = {} & WithChildren;
 
-const Body = ({ children }: Children) => (
-  <div className="b-amber b-solid w-lg ma flex h-md border-rd p-2 justify-center">
+const Body = ({ children }: BodyProps) => (
+  <div className="flex ma p-2 w-lg h-md border-rd justify-center b-amber b-solid ">
     <div className="ma">{children}</div>
   </div>
 );
@@ -25,22 +27,20 @@ function Counter() {
 
   return (
     <>
-      <p className="prose-fuchsia">
+      <p className="c-coolgray-400 text-xl">
         {count} x 2 = {double}
       </p>
-      <Button onClick={() => count.value++} className="app-button">
-        Increment
-      </Button>
-      <Button
-        onClick={() => count.value--}
-        className="app-button  active:bg-sky  outline-0"
-      >
+      <Button onClick={() => count.value++}>Increment</Button>
+      <Button onClick={() => count.value--} className="active:bg-sky">
         Decrement
       </Button>
     </>
   );
 }
 
-const Button = ({ ...buttonProps }: JSX.HTMLAttributes<HTMLButtonElement>) => (
-  <button {...buttonProps}></button>
+const Button = ({
+  className,
+  ...buttonProps
+}: JSX.HTMLAttributes<HTMLButtonElement>) => (
+  <button className={`app-button ${className}`} {...buttonProps}></button>
 );
