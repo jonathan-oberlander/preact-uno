@@ -1,3 +1,7 @@
-## Vite + Preact + TS + UnoCSS
+## Vite + Preact + TS + UnoCSS + ESLint + Prettier
 
-Use UnoCSS VSCode Plugin
+Starter config for Preact
+
+Recommanded VSCode plugins: 
+    UnoCSS
+    ESLint

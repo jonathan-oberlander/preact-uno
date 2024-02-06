@@ -1,6 +1,6 @@
-import { render } from "preact";
-import { App } from "./app";
+import { render } from 'preact'
+import { App } from './app'
 
-import "./main.css";
+import './main.css'
 
-render(<App />, document.getElementById("app") as HTMLElement);
+render(<App />, document.getElementById('app') as HTMLElement)
